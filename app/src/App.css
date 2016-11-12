@@ -1,0 +1,424 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/*Loginform*/
+body{background:#eee!important}.wrapper{margin-top:80px;margin-bottom:80px}.form-signin{max-width:380px;padding:15px 35px 45px;margin:0 auto;background-color:#fff;border:1px solid rgba(0,0,0,.1)}
+
+body {
+	font-weight: lighter;
+}
+
+li {
+	/*background-repeat: no-repeat;*/
+	/*background-attachment: fixed;*/
+	background-position: center;
+}
+
+.server-response{
+	/*height:10px;*/
+	color: red;
+	background-color: blue;
+}
+
+
+.alert-danger {
+	cursor: pointer;
+	text-align: center;
+	margin-top: none;
+	position: fixed;
+	top: 0;
+	z-index: 99999;
+	width: 100%;
+}
+
+.profilefield {
+	/*padding: 100px;*/
+	margin: 2%;
+	/*text-align: center;*/
+}
+
+.sexualid-btn {
+	padding: 10px;
+	background-color:
+
+}
+
+.active-gender{
+	cursor: pointer;
+	text-transform: lowercase;
+	background-color:rgb(229, 229, 234);
+	/*color: rgb(229, 229, 234);*/
+	/*border: 2px solid;*/
+	padding: 10px;
+	width:100px;
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	font-weight: normal;
+}
+
+.inactive-gender{
+	cursor: pointer;
+	/*border: 2px solid;*/
+	text-transform: lowercase;
+	padding: 10px;
+	width:100px;
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	font-weight: lighter;
+}
+
+.filters{
+	display: flex;
+	width: 80%;
+	justify-content: space-between;
+	margin: 50px auto;
+}
+
+.notifications {
+	background-color: rgb(229, 229, 234);
+}
+
+.single-notif {
+	/*border: 1px solid black;*/
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+.red {
+	padding: 7px 9px 7px 9px;
+	cursor: pointer;
+	margin: auto;
+	color: black;
+}
+
+.green {
+	padding: 7px 9px 7px 9px;
+	cursor: pointer;
+	margin: auto;
+	/*color: rgb(76, 218, 100);*/
+}
+
+.chat {
+	margin-left: 30%;
+	margin-right: 30%;
+}
+
+.userslist {
+	width: 20%;
+}
+
+
+.chatroom {
+	text-align: center;
+}
+
+#chatinput {
+	width: 100%;
+}
+
+
+.message {
+	height: auto;
+	max-width: 100px;
+}
+
+.tchat {
+	display: flex;
+	flex-direction: column;
+}
+
+.selected {
+	background-color: rgb(229, 229, 234);
+	padding: 7px 9px 7px 9px;
+	border-radius: 8px;
+}
+
+.onlinepoint {
+	background-color: rgb(76, 218, 100);
+	width:4px;
+	height:4px;
+	display: inline-block;
+	margin-left: 4px;
+	border-radius: 50%;
+	position: absolute;
+	z-index: -1;
+	animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+	from{
+		opacity: 1;
+	} to {
+		opacity: 0;
+	}
+}
+
+.self-self {
+	max-width: 200px;
+	padding: 7px 9px 7px 9px;
+	background-color: rgb(0, 122, 255);
+	border-radius: 8px;
+	color: white;
+	text-align: right;
+	word-wrap: break-word;
+}
+.other-other{
+	max-width: 200px;
+	padding: 7px 9px 7px 9px;
+	background-color: rgb(229, 229, 234);
+	border-radius: 8px;
+	color: black;
+	text-align: left;
+	word-wrap: break-word;
+}
+
+.self-msg {
+	margin-top: 5px;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	align-content: flex-end;
+	justify-content: flex-end;
+}
+
+.other-msg {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	align-content: flex-start;
+	justify-content: flex-start;
+}
+
+.defaultInput {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.thumbnail {
+	/*background-color: blue;*/
+  	position: relative;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	width: 300px;
+  	height: 300px;
+  	overflow: hidden;
+  	text-align: center;
+  	border-radius: 50%;
+}
+
+.thumbnail img {
+	max-width: 130%;
+	margin-left: -5px;
+	display: block;
+}
+
+.thumbnails {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.profiledetail {
+	display: inline-block;
+	text-align: right;
+	min-width: 200px;
+	padding: 10px;
+	background-color: rgba(229, 229, 234, 0.5);
+	font-weight: lighter;
+	border-radius: 2px;
+	box-shadow: 1.5px 1.5px 1.5px grey;
+}
+
+.profiledetail-art{
+	float: left;
+	margin-right: 0.5em;
+}
+
+blockquote {
+	padding: 4px;
+	font-size: 14px;
+	border: none;
+}
+
+.userdetail{
+	position: absolute;
+	z-index: 1;
+	display: inline-block;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	text-align: right;
+	background-color: rgba(229, 229, 234, 0);
+	color: rgba(229,229,234, 0);
+	font-weight: lighter;
+	padding: 100px;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	text-align: right;
+}
+
+.userdetail:hover{
+	background-color: rgba(229, 229, 234, 0.5);
+	color: black;
+}
+
+.userdetail div {
+	margin-top: 0.1em;
+}
+
+.userdetail-art {
+	float: left;
+	margin-right: 1em;
+	margin-top: 0.1em;
+}
+
+li {
+	list-style-type: none;
+}
+/*footer*/
+footer{font-size: 12px;}
+
+
+.geosuggest__suggests--hidden {
+  max-height: 0;
+  overflow: hidden;
+  border-width: 0;
+}
+
+.geosuggest__item--active {
+  background: #267dc0;
+  color: #fff;
+}
+
+.geosuggest {
+  font-size: 18px;
+  font-size: 1rem;
+  position: relative;
+  width: 50%;
+  margin: 1em auto;
+  text-align: left;
+}
+.geosuggest__input {
+  width: 100%;
+  border: 2px solid transparent;
+  box-shadow: 0 0 1px #3d464d;
+  padding: .5em 1em;
+  -webkit-transition: border 0.2s, box-shadow 0.2s;
+          transition: border 0.2s, box-shadow 0.2s;
+}
+.geosuggest__input:focus {
+  border-color: #267dc0;
+  box-shadow: 0 0 0 transparent;
+}
+.geosuggest__suggests {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 25em;
+  padding: 0;
+  margin-top: -1px;
+  background: #fff;
+  border: 2px solid #267dc0;
+  border-top-width: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  list-style: none;
+  z-index: 5;
+  -webkit-transition: max-height 0.2s, border 0.2s;
+          transition: max-height 0.2s, border 0.2s;
+}
+.geosuggest__suggests--hidden {
+  max-height: 0;
+  overflow: hidden;
+  border-width: 0;
+}
+
+/**
+ * A geosuggest item
+ */
+.geosuggest__item {
+  font-size: 18px;
+  font-size: 1rem;
+  padding: .5em .65em;
+  cursor: pointer;
+}
+.geosuggest__item:hover,
+.geosuggest__item:focus {
+  background: #f5f5f5;
+}
+.geosuggest__item--active {
+  background: #267dc0;
+  color: #fff;
+}
+.geosuggest__item--active:hover,
+.geosuggest__item--active:focus {
+  background: #ccc;
+}
+
+.bio-tag-input {
+	display: inline;
+}
+
+.gender {
+	display: none;
+}
+
+.gender + label {
+	cursor: pointer;
+	font-weight: normal;
+	width: 50%;
+	text-align: center;
+	color: rgb(229, 229, 234);
+	border: 1px grey solid;
+	border-radius: 3px;
+	margin: 0;
+}
+
+.gender:checked + label {
+	color: grey;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.interact {
+	margin: 10px;
+}
