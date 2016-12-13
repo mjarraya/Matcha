@@ -37,7 +37,7 @@ class ListRender extends React.Component {
 		if (!localStorage.getItem('logToken')) return (browserHistory.push('/login'));
 		axios({
 			method: 'get',
-			url: 'http://localhost:8080/list',
+			url: 'http://montasar.me:8080/list',
 			headers: { logToken: localStorage.getItem('logToken') },
 		}).then(({data}) => {
 			if (this.unmounted) return ;
@@ -235,8 +235,8 @@ class ListRender extends React.Component {
 				{this.state.users.length > 0 && this.state.users.map((user, i) =>
 					<Link to={`/profile/${user.username}`} key={i}>
 					<div className="thumbnail">
-					<img role="presentation" id={i} src={`http://localhost:8080${user.pictures.length ? user.pictures[0] : '/media/stormtrooper.jpg'}`}/>
-					{/* <li style={{color: 'green', fontSize:"20px", display: "inline-block", width: "220px", height: "220px", backgroundImage: `url(http://localhost:8080${user.pictures.length ? user.pictures[0] : '/media/stormtrooper.jpg'})`}} key={i}>
+					<img role="presentation" id={i} src={`http://montasar.me:8080${user.pictures.length ? user.pictures[0] : '/media/stormtrooper.jpg'}`}/>
+					{/* <li style={{color: 'green', fontSize:"20px", display: "inline-block", width: "220px", height: "220px", backgroundImage: `url(http://montasar.me:8080${user.pictures.length ? user.pictures[0] : '/media/stormtrooper.jpg'})`}} key={i}>
 					{user.username}
 					</li> */}
 					<div className="userdetail">
