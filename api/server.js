@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import http from 'http';
-import https from 'https':
+import https from 'https';
 import fs from 'fs';
 import socketIo from 'socket.io';
 import _ from 'lodash';
