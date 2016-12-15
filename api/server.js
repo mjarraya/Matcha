@@ -14,8 +14,8 @@ import * as avi from './app/models/avi';
 const users = [];
 const app = express();
 const options = {
-  key: fs.readFileSync('keys/key.pem'),
-  cert: fs.readFileSync('keys/cert.cert')
+  key: fs.readFileSync('keys/montasar_me.key'),
+  cert: fs.readFileSync('keys/montasar_me.crt')
 };
 const server = http.createServer(app);
 const secureServer = https.createServer(options, app);

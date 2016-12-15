@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
 	componentWillMount() {
 		if (localStorage.getItem('logToken')) {
 			axios({
-				url: 'http://46.101.246.154:8080/check',
+				url: 'https://46.101.246.154:8080/check',
 				method: 'post',
 				headers: { logToken: localStorage.getItem('logToken') },
 			}).then((response) => {
@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
 		e.preventDefault();
 		const response = await axios({
 			method: 'post',
-			url: 'http://46.101.246.154:8080/login',
+			url: 'https://46.101.246.154:8080/login',
 			data: {
 				username: e.target.username.value,
 				password: e.target.password.value,
