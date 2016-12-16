@@ -12,7 +12,7 @@ class Header extends React.Component {
 	componentWillMount() {
 		if (localStorage.getItem('logToken')) {
 			axios({
-				url: 'https://46.101.246.154:8080/check',
+				url: 'https://montasar.me:4433/check',
 				method: 'post',
 				headers: { logToken: localStorage.getItem('logToken') },
 			}).then((response) => {
@@ -56,7 +56,7 @@ class Header extends React.Component {
 		e.preventDefault();
 		e.persist();
 		axios({
-			url: 'https://46.101.246.154:8080/unnotify',
+			url: 'https://montasar.me:4433/unnotify',
 			method: 'post',
 			data: {
 				key: e.target.id,

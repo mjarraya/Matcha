@@ -4,6 +4,7 @@ import axios from 'axios';
 import InputRange from 'react-input-range';
 import './InputRange.css';
 import './App.css';
+import keys from './keys/keys.json';
 
 class ListRender extends React.Component {
 	state = {
@@ -37,7 +38,10 @@ class ListRender extends React.Component {
 		if (!localStorage.getItem('logToken')) return (browserHistory.push('/login'));
 		axios({
 			method: 'get',
-			url: 'https://46.101.246.154:8080/list',
+			url: 'https://montasar.me:4433/list',
+			key: keys.key,
+			cert: keys.cert,
+			ca: keys.ca,
 			headers: { logToken: localStorage.getItem('logToken') },
 		}).then(({data}) => {
 			if (this.unmounted) return ;
@@ -235,8 +239,8 @@ class ListRender extends React.Component {
 				{this.state.users.length > 0 && this.state.users.map((user, i) =>
 					<Link to={`/profile/${user.username}`} key={i}>
 					<div className="thumbnail">
-					<img role="presentation" id={i} src={`https://46.101.246.154:8080${user.pictures.length ? user.pictures[0] : '/media/stormtrooper.jpg'}`}/>
-					{/* <li style={{color: 'green', fontSize:"20px", display: "inline-block", width: "220px", height: "220px", backgroundImage: `url(https://46.101.246.154:8080${user.pictures.length ? user.pictures[0] : '/media/stormtrooper.jpg'})`}} key={i}>
+					<img role="presentation" id={i} src={`https://montasar.me:4433${user.pictures.length ? user.pictures[0] : '/media/stormtrooper.jpg'}`}/>
+					{/* <li style={{color: 'green', fontSize:"20px", display: "inline-block", width: "220px", height: "220px", backgroundImage: `url(https://montasar.me:4433${user.pictures.length ? user.pictures[0] : '/media/stormtrooper.jpg'})`}} key={i}>
 					{user.username}
 					</li> */}
 					<div className="userdetail">

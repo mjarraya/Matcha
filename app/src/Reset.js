@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router';
 import axios from 'axios';
 // import Home from './Home';
 import './App.css';
+import keys from './keys/keys.json';
 
 class ResetForm extends React.Component {
 	state = {
@@ -14,8 +15,11 @@ class ResetForm extends React.Component {
 	componentWillMount() {
 		if (localStorage.getItem('logToken')) {
 			axios({
-				url: 'https://46.101.246.154:8080/check',
+				url: 'https://montasar.me:4433/check',
 				method: 'post',
+				key: keys.key,
+				cert: keys.cert,
+				ca: keys.ca,
 				headers: { logToken: localStorage.getItem('logToken') },
 			}).then((response) => {
 				if (!response.data.error){
@@ -39,7 +43,10 @@ class ResetForm extends React.Component {
 		if (this.props.location.query.logged) {
 			const response = await axios({
 				method: 'put',
-				url: 'https://46.101.246.154:8080/edit',
+				url: 'https://montasar.me:4433/edit',
+				key: keys.key,
+				cert: keys.cert,
+				ca: keys.ca,
 				data: {
 					password: e.target.password.value,
 				},
@@ -51,7 +58,10 @@ class ResetForm extends React.Component {
 		} else {
 			const response = await axios({
 				method: 'post',
-				url: 'https://46.101.246.154:8080/reset',
+				url: 'https://montasar.me:4433/reset',
+				key: keys.key,
+				cert: keys.cert,
+				ca: keys.ca,
 				data: {
 					password: e.target.password.value,
 					crypted: this.props.location.query.key,

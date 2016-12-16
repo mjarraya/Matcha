@@ -18,7 +18,7 @@ import Error404 from './Error404';
 
 // import List from './List';
 
-const socket = io('https://46.101.246.154:8080');
+const socket = io('https://montasar.me:4433');
 const AppCaller = React.createClass({
 	render() {
 		return (<App socket={socket} location={this.props.location}>{this.props.children}

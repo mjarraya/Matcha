@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import './App.css';
+import keys from './keys/keys.json';
 
 class ChatRender extends React.Component {
 	state = {
@@ -16,7 +17,10 @@ class ChatRender extends React.Component {
 	componentWillMount() {
 		axios({
 			method: 'get',
-			url: 'https://46.101.246.154:8080/profile',
+			url: 'https://montasar.me:4433/profile',
+			key: keys.key,
+			cert: keys.cert,
+			ca: keys.ca,
 			headers: { logToken: localStorage.getItem('logToken') },
 		}).then(({data}) => {
 			if (this.unmounted) return ;
@@ -34,7 +38,10 @@ class ChatRender extends React.Component {
 		this.state.socket.on('message', (content) => {
 			axios({
 				method: 'post',
-				url: 'https://46.101.246.154:8080/chat',
+				url: 'https://montasar.me:4433/chat',
+				key: keys.key,
+				cert: keys.cert,
+				ca: keys.ca,
 				data: {
 					recipient: this.state.recipient,
 					sender: this.state.currentuser,
@@ -57,7 +64,10 @@ class ChatRender extends React.Component {
 		e.persist();
 		axios({
 			method: 'post',
-			url: 'https://46.101.246.154:8080/chat',
+			url: 'https://montasar.me:4433/chat',
+			key: keys.key,
+			cert: keys.cert,
+			ca: keys.ca,
 			data: {
 				recipient: e.target.id,
 				sender: this.state.currentuser,
@@ -76,7 +86,10 @@ class ChatRender extends React.Component {
 		}
 		axios({
 			method: 'post',
-			url: 'https://46.101.246.154:8080/chat',
+			url: 'https://montasar.me:4433/chat',
+			key: keys.key,
+			cert: keys.cert,
+			ca: keys.ca,
 			data: {
 				message: e.target.message.value,
 				recipient: this.state.recipient,
