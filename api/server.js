@@ -1,7 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import https from 'http';
+import https from 'https';
+import fs from 'fs';
 import socketIo from 'socket.io';
 import _ from 'lodash';
 import moment from 'moment';
@@ -13,7 +14,7 @@ const users = [];
 const app = express();
 const options = {
 	key: fs.readFileSync('/etc/ssl/montasar_me.key'),
-	cert: fs.readFileSync('/etc/ssl/montasar_me.cert'),
+	cert: fs.readFileSync('/etc/ssl/montasar_me.crt'),
 	ca: fs.readFileSync('/etc/ssl/montasar_me.ca-bundle')
 };
 const server = https.createServer(options, app);

@@ -14,7 +14,7 @@ class ResetForm extends React.Component {
 	componentWillMount() {
 		if (localStorage.getItem('logToken')) {
 			axios({
-				url: 'http://46.101.169.42:4433/check',
+				url: 'https://46.101.169.42:4433/check',
 				method: 'post',
 				headers: { logToken: localStorage.getItem('logToken') },
 			}).then((response) => {
@@ -39,7 +39,7 @@ class ResetForm extends React.Component {
 		if (this.props.location.query.logged) {
 			const response = await axios({
 				method: 'put',
-				url: 'http://46.101.169.42:4433/edit',
+				url: 'https://46.101.169.42:4433/edit',
 				data: {
 					password: e.target.password.value,
 				},
@@ -51,7 +51,7 @@ class ResetForm extends React.Component {
 		} else {
 			const response = await axios({
 				method: 'post',
-				url: 'http://46.101.169.42:4433/reset',
+				url: 'https://46.101.169.42:4433/reset',
 				data: {
 					password: e.target.password.value,
 					crypted: this.props.location.query.key,
