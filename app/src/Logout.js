@@ -11,7 +11,7 @@ class LogoutForm extends React.Component {
 	logout = async () => {
 		const response = await axios({
 			method: 'post',
-			url: 'http://localhost:8080/logout',
+			url: 'http://46.101.169.42:4433/logout',
 			headers: { logToken: localStorage.getItem('logToken') },
 		});
 		localStorage.setItem('logToken', response.headers.logtoken);
