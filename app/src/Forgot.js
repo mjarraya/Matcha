@@ -2,7 +2,6 @@ import React from 'react';
 import { browserHistory, Link } from 'react-router';
 import axios from 'axios';
 import './App.css';
-import keys from './keys/keys.json'
 
 class ForgotForm extends React.Component {
 	state = {
@@ -13,11 +12,8 @@ class ForgotForm extends React.Component {
 	componentWillMount() {
 		if (localStorage.getItem('logToken')) {
 			axios({
-				url: 'https://montasar.me:4433/check',
+				url: 'http://localhost:8080/check',
 				method: 'post',
-				key: keys.key,
-				cert: keys.cert,
-				ca: keys.ca,
 				headers: { logToken: localStorage.getItem('logToken') },
 			}).then((response) => {
 				if (!response.data.error) browserHistory.push('/');
@@ -30,10 +26,7 @@ class ForgotForm extends React.Component {
 		this.setState({ success: null });
 		const response = await axios({
 			method: 'post',
-			url: 'https://montasar.me:4433/forgot',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/forgot',
 			data: {
 				username: e.target.username.value,
 			},

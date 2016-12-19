@@ -3,7 +3,6 @@ import { browserHistory, Link } from 'react-router';
 import axios from 'axios';
 import Geosuggest from 'react-geosuggest';
 import './App.css';
-import keys from './keys/keys.json';
 
 class ProfileRender extends React.Component {
 	state = {
@@ -38,10 +37,7 @@ class ProfileRender extends React.Component {
 		if (!localStorage.getItem('logToken')) return (browserHistory.push('/login'));
 		axios({
 			method: 'get',
-			url: 'https://montasar.me:4433/profile',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/profile',
 			headers: { logToken: localStorage.getItem('logToken') },
 		}).then(({data}) => {
 			if (this.unmounted) return ;
@@ -80,10 +76,7 @@ class ProfileRender extends React.Component {
 		data.append('photo', file);
 		const response = await axios({
 			method: 'put',
-			url: 'https://montasar.me:4433/upload',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/upload',
 			data,
 			headers: {
 				'Content-Type': 'multipart/form-data',
@@ -109,10 +102,7 @@ class ProfileRender extends React.Component {
 		const imgid = e.target.id;
 		const response = await axios({
 			method: 'delete',
-			url: 'https://montasar.me:4433/remove',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/remove',
 			data: { imgid },
 			headers: { logToken: localStorage.getItem('logToken') },
 		});
@@ -130,10 +120,7 @@ class ProfileRender extends React.Component {
 		});
 		const response = await axios ({
 			method: 'put',
-			url: 'https://montasar.me:4433/edit',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/edit',
 			data: { interests: newInterests },
 			headers: { logToken: localStorage.getItem('logToken') },
 		});
@@ -182,10 +169,7 @@ class ProfileRender extends React.Component {
 		e.persist();
 		axios({
 			method: 'put',
-			url: 'https://montasar.me:4433/edit',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/edit',
 			data: {
 				email: e.target.email.value,
 			},
@@ -204,10 +188,7 @@ class ProfileRender extends React.Component {
 		e.persist();
 		axios({
 			method: 'put',
-			url: 'https://montasar.me:4433/edit',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/edit',
 			data: {
 				firstname: e.target.firstname.value,
 			},
@@ -226,10 +207,7 @@ class ProfileRender extends React.Component {
 		e.persist();
 		axios({
 			method: 'put',
-			url: 'https://montasar.me:4433/edit',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/edit',
 			data: { lastname: e.target.lastname.value },
 			headers: { logToken: localStorage.getItem('logToken') },
 		}).then(({data}) => {
@@ -250,10 +228,7 @@ class ProfileRender extends React.Component {
 		}
 		axios({
 			method: 'put',
-			url: 'https://montasar.me:4433/edit',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/edit',
 			data: { bio: e.target.bio.value },
 			headers: { logToken: localStorage.getItem('logToken') },
 		}).then(({data}) => {
@@ -270,10 +245,7 @@ class ProfileRender extends React.Component {
 		const gender = e.target.id;
 		axios({
 			method: 'put',
-			url: 'https://montasar.me:4433/edit',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/edit',
 			data: {
 				gender,
 				sexualid: `${gender} ${this.state.orientation}`
@@ -293,10 +265,7 @@ class ProfileRender extends React.Component {
 		const orientation = e.target.id;
 		axios({
 			method: 'put',
-			url: 'https://montasar.me:4433/edit',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/edit',
 			data: {
 				orientation,
 				sexualid: `${this.state.gender} ${orientation}`
@@ -318,10 +287,7 @@ class ProfileRender extends React.Component {
 		newInterests.push(interest);
 		const response = await axios({
 			method: 'put',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
-			url: 'https://montasar.me:4433/edit',
+			url: 'http://localhost:8080/edit',
 			data: { interests: newInterests },
 			headers: { logToken: localStorage.getItem('logToken') },
 		});
@@ -348,10 +314,7 @@ class ProfileRender extends React.Component {
 					Location.addr = addr;
 					axios({
 						method: 'put',
-						url: 'https://montasar.me:4433/edit',
-						key: keys.key,
-						cert: keys.cert,
-						ca: keys.ca,
+						url: 'http://localhost:8080/edit',
 						data: { location: Location },
 						headers: { logToken: localStorage.getItem('logToken') },
 					}).then(({ data }) => {
@@ -378,10 +341,7 @@ class ProfileRender extends React.Component {
 				Location.addr = addr;
 				axios({
 					method: 'put',
-					url: 'https://montasar.me:4433/edit',
-					key: keys.key,
-					cert: keys.cert,
-					ca: keys.ca,
+					url: 'http://localhost:8080/edit',
 					data: { location: Location },
 					headers: { logToken: localStorage.getItem('logToken') },
 				}).then(({ data }) => {
@@ -405,10 +365,7 @@ class ProfileRender extends React.Component {
 		if (today < birthday) age--;
 		axios({
 			method: 'put',
-			url: 'https://montasar.me:4433/edit',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/edit',
 			data: {
 				birthdate,
 				age,
@@ -438,7 +395,7 @@ class ProfileRender extends React.Component {
 						<div className="thumbnails">
 
 						<div className="thumbnail">
-							<img onDoubleClick={this.delImage} role="presentation" id={0} src={"https://montasar.me:4433" + this.state.pictures[0]} key={0} title="double-click to remove your photo"/>
+							<img onDoubleClick={this.delImage} role="presentation" id={0} src={"http://localhost:8080" + this.state.pictures[0]} key={0} title="double-click to remove your photo"/>
 						</div>
 						</div>
 					)}
@@ -545,7 +502,7 @@ class ProfileRender extends React.Component {
 					<div className="thumbnails">
 					{this.state.pictures.map((picture, i) => i !== 0 &&
 						<div key={i} className="thumbnail">
-							<img onDoubleClick={this.delImage} role="presentation" id={i} height="200px" src={"https://montasar.me:4433" + picture} key={i} title="double-click to remove your photo"/>
+							<img onDoubleClick={this.delImage} role="presentation" id={i} height="200px" src={"http://localhost:8080" + picture} key={i} title="double-click to remove your photo"/>
 						</div>
 					)}
 					</div>

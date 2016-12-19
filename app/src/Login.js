@@ -2,7 +2,7 @@ import React from 'react';
 import { browserHistory, Link } from 'react-router';
 import axios from 'axios';
 import './App.css';
-import keys from './keys/keys.json'
+
 class LoginForm extends React.Component {
 	state = {
 		status: null,
@@ -11,11 +11,8 @@ class LoginForm extends React.Component {
 	componentWillMount() {
 		if (localStorage.getItem('logToken')) {
 			axios({
-				url: 'https://montasar.me:4433/check',
+				url: 'http://localhost:8080/check',
 				method: 'post',
-				key: keys.key,
-				cert: keys.cert,
-				ca: keys.ca,
 				headers: { logToken: localStorage.getItem('logToken') },
 			}).then((response) => {
 				if (!response.data.error) browserHistory.push('/');
@@ -27,10 +24,7 @@ class LoginForm extends React.Component {
 		e.preventDefault();
 		const response = await axios({
 			method: 'post',
-			url: 'https://montasar.me:4433/login',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/login',
 			data: {
 				username: e.target.username.value,
 				password: e.target.password.value,

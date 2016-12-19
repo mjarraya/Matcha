@@ -3,7 +3,6 @@ import { browserHistory, Link } from 'react-router';
 import axios from 'axios';
 import moment from 'moment';
 import './App.css';
-import keys from './keys/keys.json';
 
 class ExtProfileRender extends React.Component {
 	state = {
@@ -35,10 +34,7 @@ class ExtProfileRender extends React.Component {
 		const path = this.props.location.pathname.split('/');
 		axios({
 			method: 'put',
-			url: `https://montasar.me:4433/profile/${path[2]}`,
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: `http://localhost:8080/profile/${path[2]}`,
 			data: {
 				visited: path[2],
 			},
@@ -76,10 +72,7 @@ class ExtProfileRender extends React.Component {
 		const { username, liked, popscore } = this.state;
  		axios({
 			method: 'post',
-			url: `https://montasar.me:4433/${liked ? 'unlike' : 'like'}`,
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: `http://localhost:8080/${liked ? 'unlike' : 'like'}`,
 			data: {
 				liked: username,
 			},
@@ -99,10 +92,7 @@ class ExtProfileRender extends React.Component {
 		const { username, blocked, popscore } = this.state;
 		axios({
 			method: 'post',
-			url: `https://montasar.me:4433/${blocked ? 'unblock' : 'block'}`,
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: `http://localhost:8080/${blocked ? 'unblock' : 'block'}`,
 			data: {
 				blocked: username,
 			},
@@ -122,10 +112,7 @@ class ExtProfileRender extends React.Component {
 		const { username } = this.state;
 		axios({
 			method: 'post',
-			url: 'https://montasar.me:4433/report',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/report',
 			data: {
 				reported: username,
 			},
@@ -161,7 +148,7 @@ class ExtProfileRender extends React.Component {
 				{this.state.pictures[0] && (
 					<div className="thumbnails">
 					<div className="thumbnail">
-						<img role="presentation" id={0} height="300px" src={"https://montasar.me:4433" + this.state.pictures[0]} key={0}/>
+						<img role="presentation" id={0} height="300px" src={"http://localhost:8080" + this.state.pictures[0]} key={0}/>
 					</div>
 					</div>
 				)}
@@ -214,7 +201,7 @@ class ExtProfileRender extends React.Component {
 				<div className="thumbnails">
 				{this.state.pictures.map((picture, i) => i !== 0 &&
 					<div key={i} className="thumbnail">
-					<img role="presentation" id={i} height="200px" src={"https://montasar.me:4433" + picture} key={i}/>
+					<img role="presentation" id={i} height="200px" src={"http://localhost:8080" + picture} key={i}/>
 					</div>
 				)}
 				</div>

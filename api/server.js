@@ -2,8 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import http from 'http';
-import https from 'https';
-import fs from 'fs';
 import socketIo from 'socket.io';
 import _ from 'lodash';
 import moment from 'moment';
@@ -13,12 +11,7 @@ import * as avi from './app/models/avi';
 
 const users = [];
 const app = express();
-const options = {
-  key: fs.readFileSync('keys/montasar_me.key'),
-  cert: fs.readFileSync('keys/montasar_me.crt')
-};
 const server = http.createServer(app);
-const secureServer = https.createServer(options, app);
 const io = socketIo(server);
 
 io.on('connection', (socket) => {
@@ -70,5 +63,4 @@ app.post('/search', user.search);
 app.post('/unnotify', user.unnotify);
 app.post('/chat', user.chat(users));
 
-server.listen(8081);
-secureServer.listen(8080)
+server.listen(8080);

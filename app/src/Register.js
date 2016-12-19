@@ -2,7 +2,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import axios from 'axios';
 import './App.css';
-import keys from './keys/keys.json';
+
 class RegisterForm extends React.Component {
 	state = {
 		status: null,
@@ -11,10 +11,7 @@ class RegisterForm extends React.Component {
 	componentWillMount() {
 		if (localStorage.getItem('logToken')) {
 			axios({
-				url: 'https://montasar.me:4433/check',
-				key: keys.key,
-				cert: keys.cert,
-				ca: keys.ca,
+				url: 'http://localhost:8080/check',
 				method: 'post',
 				headers: { logToken: localStorage.getItem('logToken') },
 			}).then((response) => {
@@ -32,10 +29,7 @@ class RegisterForm extends React.Component {
 		e.preventDefault();
 		const response = await axios({
 			method: 'post',
-			url: 'https://montasar.me:4433/register',
-			key: keys.key,
-			cert: keys.cert,
-			ca: keys.ca,
+			url: 'http://localhost:8080/register',
 			data: {
 				username: e.target.username.value,
 				password: e.target.password.value,

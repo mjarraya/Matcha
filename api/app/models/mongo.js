@@ -2,7 +2,7 @@ import mongodb from 'mongodb';
 
 const mongoConnect = (response, success) => {
 	const mdb = mongodb.MongoClient;
-	const url = 'mongodb://localhost/matcha';
+	const url = 'mongodb://198.211.123.106/matcha';
 	mdb.connect(url, (err, db) => {
 		if (err) {
 			response.send({
