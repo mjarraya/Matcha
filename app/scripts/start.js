@@ -222,8 +222,8 @@ function runDevServer(host, port, protocol) {
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     key: fs.readFileSync('/etc/ssl/montasar_me.key'),
-	cert: fs.readFileSync('/etc/ssl/montasar_me.crt'),
-	cacert: fs.readFileSync('/etc/ssl/montasar_me.ca-bundle'),
+    cert: fs.readFileSync('/etc/ssl/montasar_me.crt'),
+    cacert: fs.readFileSync('/etc/ssl/montasar_me.ca-bundle'),
     https: protocol === "https",
     host: host
   });
