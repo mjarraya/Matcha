@@ -12,7 +12,7 @@ class ForgotForm extends React.Component {
 	componentWillMount() {
 		if (localStorage.getItem('logToken')) {
 			axios({
-				url: 'https://46.101.169.42:4433/check',
+				url: 'https://montasar.me:4433/check',
 				method: 'post',
 				headers: { logToken: localStorage.getItem('logToken') },
 			}).then((response) => {
@@ -26,7 +26,7 @@ class ForgotForm extends React.Component {
 		this.setState({ success: null });
 		const response = await axios({
 			method: 'post',
-			url: 'https://46.101.169.42:4433/forgot',
+			url: 'https://montasar.me:4433/forgot',
 			data: {
 				username: e.target.username.value,
 			},

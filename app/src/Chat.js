@@ -16,7 +16,7 @@ class ChatRender extends React.Component {
 	componentWillMount() {
 		axios({
 			method: 'get',
-			url: 'https://46.101.169.42:4433/profile',
+			url: 'https://montasar.me:4433/profile',
 			headers: { logToken: localStorage.getItem('logToken') },
 		}).then(({data}) => {
 			if (this.unmounted) return ;
@@ -34,7 +34,7 @@ class ChatRender extends React.Component {
 		this.state.socket.on('message', (content) => {
 			axios({
 				method: 'post',
-				url: 'https://46.101.169.42:4433/chat',
+				url: 'https://montasar.me:4433/chat',
 				data: {
 					recipient: this.state.recipient,
 					sender: this.state.currentuser,
@@ -57,7 +57,7 @@ class ChatRender extends React.Component {
 		e.persist();
 		axios({
 			method: 'post',
-			url: 'https://46.101.169.42:4433/chat',
+			url: 'https://montasar.me:4433/chat',
 			data: {
 				recipient: e.target.id,
 				sender: this.state.currentuser,
@@ -76,7 +76,7 @@ class ChatRender extends React.Component {
 		}
 		axios({
 			method: 'post',
-			url: 'https://46.101.169.42:4433/chat',
+			url: 'https://montasar.me:4433/chat',
 			data: {
 				message: e.target.message.value,
 				recipient: this.state.recipient,

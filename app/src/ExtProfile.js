@@ -34,7 +34,7 @@ class ExtProfileRender extends React.Component {
 		const path = this.props.location.pathname.split('/');
 		axios({
 			method: 'put',
-			url: `https://46.101.169.42:4433/profile/${path[2]}`,
+			url: `https://montasar.me:4433/profile/${path[2]}`,
 			data: {
 				visited: path[2],
 			},
@@ -72,7 +72,7 @@ class ExtProfileRender extends React.Component {
 		const { username, liked, popscore } = this.state;
  		axios({
 			method: 'post',
-			url: `https://46.101.169.42:4433/${liked ? 'unlike' : 'like'}`,
+			url: `https://montasar.me:4433/${liked ? 'unlike' : 'like'}`,
 			data: {
 				liked: username,
 			},
@@ -92,7 +92,7 @@ class ExtProfileRender extends React.Component {
 		const { username, blocked, popscore } = this.state;
 		axios({
 			method: 'post',
-			url: `https://46.101.169.42:4433/${blocked ? 'unblock' : 'block'}`,
+			url: `https://montasar.me:4433/${blocked ? 'unblock' : 'block'}`,
 			data: {
 				blocked: username,
 			},
@@ -112,7 +112,7 @@ class ExtProfileRender extends React.Component {
 		const { username } = this.state;
 		axios({
 			method: 'post',
-			url: 'https://46.101.169.42:4433/report',
+			url: 'https://montasar.me:4433/report',
 			data: {
 				reported: username,
 			},
@@ -148,7 +148,7 @@ class ExtProfileRender extends React.Component {
 				{this.state.pictures[0] && (
 					<div className="thumbnails">
 					<div className="thumbnail">
-						<img role="presentation" id={0} height="300px" src={"https://46.101.169.42:4433" + this.state.pictures[0]} key={0}/>
+						<img role="presentation" id={0} height="300px" src={"https://montasar.me:4433" + this.state.pictures[0]} key={0}/>
 					</div>
 					</div>
 				)}
@@ -201,7 +201,7 @@ class ExtProfileRender extends React.Component {
 				<div className="thumbnails">
 				{this.state.pictures.map((picture, i) => i !== 0 &&
 					<div key={i} className="thumbnail">
-					<img role="presentation" id={i} height="200px" src={"https://46.101.169.42:4433" + picture} key={i}/>
+					<img role="presentation" id={i} height="200px" src={"https://montasar.me:4433" + picture} key={i}/>
 					</div>
 				)}
 				</div>
